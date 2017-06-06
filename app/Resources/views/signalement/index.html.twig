@@ -3,10 +3,13 @@
 {% block body %}
     <h1>Signalements list</h1>
 
-    <table>
+    <table border="1" cellpadding="15">
         <thead>
             <tr>
+                <!------Ajouter ---->
                 <th>User</th>
+                <th>Article</th>
+                <th>Commentaire</th>
                 <th>Cause</th>
                 <th>Actions</th>
             </tr>
@@ -14,15 +17,17 @@
         <tbody>
         {% for signalement in signalements %}
             <tr>
+                <!------Ajouter ---->
+                <td>{{ signalement.getUserSignalement }}</td>
+                <td>{{ signalement.getSignalementsArticle }}</td>
+                <td>{{ signalement.getSignalementsCommentaire}} </td>
                 <td>{{ signalement.cause }}</td>
                 <td>
                     <ul>
                         <li>
                             <a href="{{ path('signalement_show', { 'id': signalement.id }) }}">show</a>
                         </li>
-                        <li>
-                            <a href="{{ path('signalement_edit', { 'id': signalement.id }) }}">edit</a>
-                        </li>
+                        <!------Ajouter ---->
                         <li>
                             <a href="{{ path('signalement_delete', { 'id': signalement.id }) }}">delete</a>
                         </li>

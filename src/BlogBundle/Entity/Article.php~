@@ -299,4 +299,3 @@ class Article
         return $this->id.'-'.$this->titre.'-'.$this->date.'-'.$this->dateModif.'-'.$this->contenu;
     }
 }
-

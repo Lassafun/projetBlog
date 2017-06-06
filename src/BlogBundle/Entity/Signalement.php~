@@ -22,6 +22,12 @@ class Signalement
      */
     private $userSignalement;
 
+    /**
+     * @var \BlogBundle\Entity\Article
+     */
+    private $signalementsArticle;
+
+
 
     /**
      * Get id
@@ -80,11 +86,6 @@ class Signalement
     {
         return $this->userSignalement;
     }
-    /**
-     * @var \BlogBundle\Entity\Article
-     */
-    private $signalementsArticle;
-
 
     /**
      * Set signalementsArticle
@@ -115,6 +116,6 @@ class Signalement
 
     public function __toString()
     {
-        return $this->id.'-'.$this->cause;
+        return $this->id.'-'.$this->cause.'-'.$this->userSignalement.'-'.$this->signalementsArticle;
     }
 }

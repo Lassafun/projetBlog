@@ -184,4 +184,13 @@ class Commentaire
     {
         return $this->commentairesUser;
     }
+
+    //////////////////////////////////////
+    ////////////////AJOUT/////////////////
+    //////////////////////////////////////
+
+    public function __toString()
+    {
+        return $this->texte;
+    }
 }

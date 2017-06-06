@@ -22,6 +22,12 @@ class Signalement
      */
     private $userSignalement;
 
+    /**
+     * @var \BlogBundle\Entity\Article
+     */
+    private $signalementsArticle;
+
+
 
     /**
      * Get id
@@ -80,11 +86,6 @@ class Signalement
     {
         return $this->userSignalement;
     }
-    /**
-     * @var \BlogBundle\Entity\Article
-     */
-    private $signalementsArticle;
-
 
     /**
      * Set signalementsArticle
@@ -110,11 +111,46 @@ class Signalement
         return $this->signalementsArticle;
     }
 
-
+    
     //////////////////////////////////////////
+    ////////////// AJOUT ////////////////////
+    //////////////////////////////////////////
+    
+    /**
+     * @var \BlogBundle\Entity\Commentaire
+     */
+    private $signalementsCommentaire;
+
+    /**
+     * Set signalementsCommentaire
+     *
+     * @param \BlogBundle\Entity\Commentaire $signalementsCommentaire
+     *
+     * @return Signalement
+     */
+    public function setSignalementsCommentaire(\BlogBundle\Entity\Commentaire $signalementsCommentaire = null)
+    {
+        $this->signalementsCommentaire = $signalementsCommentaire;
+
+        return $this;
+    }
+
+    /**
+     * Get signalementsCommentaire
+     *
+     * @return \BlogBundle\Entity\Commentaire
+     */
+    public function getSignalementsCommentaire()
+    {
+        return $this->signalementsCommentaire;
+    }
+
 
     public function __toString()
     {
-        return $this->id.'-'.$this->cause;
+        return $this->id.'-'.$this->cause.'-'.$this->signalementsCommentaire;
     }
+    
+
+    
 }

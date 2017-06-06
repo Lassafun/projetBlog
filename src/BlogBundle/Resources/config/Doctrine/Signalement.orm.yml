@@ -21,6 +21,10 @@ BlogBundle\Entity\Signalement:
         signalementsArticle:
             targetEntity: Article
             inversedBy: articleSignalements
+                
+        signalementsCommentaire:
+            targetEntity: Commentaire
+            mappedBy: commentaireSignalements
 
             
     lifecycleCallbacks: { }

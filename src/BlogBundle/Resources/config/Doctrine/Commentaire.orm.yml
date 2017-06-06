@@ -18,6 +18,7 @@ BlogBundle\Entity\Commentaire:
         commentaireSignalements:
             targetEntity: Signalement
             mappedBy: signalementsCommentaire
+            
     manyToOne:
         commentairesArticle:
             targetEntity: Article
