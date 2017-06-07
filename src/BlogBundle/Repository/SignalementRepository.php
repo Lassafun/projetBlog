@@ -10,4 +10,39 @@ namespace BlogBundle\Repository;
  */
 class SignalementRepository extends \Doctrine\ORM\EntityRepository
 {
+	public function getListArticles()
+	{
+		/** Fonction qui permet de récupérer tout les signalements qui possédent un article dans le signalement lui meme **/
+		return $this->createQueryBuilder('signalement')
+			->innerJoin('signalement.signalementsArticle', 'signalementsArticle')
+            ->getQuery()
+            ->getResult();
+	}
+
+
+	public function getListCommentaires()
+	{
+		/** Fonction qui permet de récupérer tout les signalements qui possédent un commentaire **/
+		return $this->createQueryBuilder('signalement')
+			->innerJoin('signalement.signalementsCommentaire', 'signalementsCommentaire')
+            ->getQuery()
+            ->getResult();
+	}
+
+	public function getListUser()
+	{
+		/** Fonction qui permet de récupérer tout les signalements qui possédent un user **/
+		return $this->createQueryBuilder('signalement')
+			->innerJoin('signalement.userSignalement', 'userSignalement')
+            ->getQuery()
+            ->getResult();
+	}
 }
+
+
+
+
+
+
+/** Pour supprimer un article d'un signalement tu va devoir récupérer l'id de l'article qui est contenu dans le signalement et 
+faire une fonction qupprime sa normalement c'est la meme chose que supprimer un signalement mais pour un article lol **/

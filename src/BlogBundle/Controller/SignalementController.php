@@ -20,10 +20,18 @@ class SignalementController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $signalements = $em->getRepository('BlogBundle:Signalement')->findAll();
+       /* $signalements = $em->getRepository('BlogBundle:Signalement')->findAll();*/
+
+        $signalementsArticle = $em->getRepository('BlogBundle:Signalement')->getListArticles();
+
+        $signalementsCommentaire = $em->getRepository('BlogBundle:Signalement')->getListCommentaires();
+
+        $userSignalement = $em->getRepository('BlogBundle:Signalement')->getListUser();
 
         return $this->render('signalement/index.html.twig', array(
-            'signalements' => $signalements,
+            'signalementsArticle' => $signalementsArticle,
+            'signalementsCommentaire' => $signalementsCommentaire,
+            'userSignalement' => $userSignalement,
         ));
     }
 

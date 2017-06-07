@@ -3,7 +3,8 @@
 {% block body %}
     <h1>Signalements list</h1>
 
-    <table border="1" cellpadding="15">
+    
+     <table border="1" cellpadding="15">
         <thead>
             <tr>
                 <!------Ajouter ---->
@@ -15,7 +16,7 @@
             </tr>
         </thead>
         <tbody>
-        {% for signalement in signalements %}
+        {% for signalement in signalementsArticle %}
             <tr>
                 <!------Ajouter ---->
                 <td>{{ signalement.getUserSignalement }}</td>
@@ -29,7 +30,77 @@
                         </li>
                         <!------Ajouter ---->
                         <li>
-                            <a href="{{ path('signalement_delete', { 'id': signalement.id }) }}">delete</a>
+                            <a href="{{ path('signalement_delete', { 'id': signalement.id }) }}">Supprimer le signalement</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <table border="1" cellpadding="15">
+        <thead>
+            <tr>
+                <!------Ajouter ---->
+                <th>User</th>
+                <th>Article</th>
+                <th>Commentaire</th>
+                <th>Cause</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for signalement in signalementsCommentaire %}
+            <tr>
+                <!------Ajouter ---->
+                <td>{{ signalement.getUserSignalement }}</td>
+                <td>{{ signalement.getSignalementsArticle }}</td>
+                <td>{{ signalement.getSignalementsCommentaire}} </td>
+                <td>{{ signalement.cause }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('signalement_show', { 'id': signalement.id }) }}">show</a>
+                        </li>
+                        <!------Ajouter ---->
+                        <li>
+                            <a href="{{ path('signalement_delete', { 'id': signalement.id }) }}">Supprimer le signalement</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <table border="1" cellpadding="15">
+        <thead>
+            <tr>
+                <!------Ajouter ---->
+                <th>User</th>
+                <th>Article</th>
+                <th>Commentaire</th>
+                <th>Cause</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for signalement in userSignalement %}
+            <tr>
+                <!------Ajouter ---->
+                <td>{{ signalement.getUserSignalement }}</td>
+                <td>{{ signalement.getSignalementsArticle }}</td>
+                <td>{{ signalement.getSignalementsCommentaire}} </td>
+                <td>{{ signalement.cause }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('signalement_show', { 'id': signalement.id }) }}">show</a>
+                        </li>
+                        <!------Ajouter ---->
+                        <li>
+                            <a href="{{ path('signalement_delete', { 'id': signalement.id }) }}">Supprimer le signalement</a>
                         </li>
                     </ul>
                 </td>
@@ -43,4 +114,5 @@
             <a href="{{ path('signalement_new') }}">Create a new signalement</a>
         </li>
     </ul>
+
 {% endblock %}

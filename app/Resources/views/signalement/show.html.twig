@@ -21,7 +21,7 @@
             </tr>
             <tr>
                 <th>Contenu</th>
-                <td>{{ signalement.userSignalement }}</td>
+                <td>{{ signalement.getSignalementsArticle.contenu }}</td>
             </tr>
             <tr>
                 <th>Commentaire</th>         
@@ -29,7 +29,8 @@
             </tr>
         </tbody>
     </table>
-
+    <input type="submit" />
+    <input type="button" value="Redirection" />
     <ul>
         <li>
             <a href="{{ path('signalement_index') }}">Back to the list</a>
