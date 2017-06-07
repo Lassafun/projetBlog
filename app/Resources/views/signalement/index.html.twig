@@ -64,9 +64,6 @@
                 <td>{{ signalement.cause }}</td>
                 <td>
                     <ul>
-                        <li>
-                            <a href="{{ path('signalement_show', { 'id': signalement.id }) }}">Voir le commentaire</a>
-                        </li>
                         <!------Ajouter ---->
                         <li> <a href="{{ path('signalement_delete_commentaire', {'id': signalement.signalementsCommentaire.id }) }}">
                             Supprimer le commentaire  </a>
