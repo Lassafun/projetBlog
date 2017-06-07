@@ -39,10 +39,3 @@ class SignalementRepository extends \Doctrine\ORM\EntityRepository
 	}
 }
 
-
-
-
-
-
-/** Pour supprimer un article d'un signalement tu va devoir récupérer l'id de l'article qui est contenu dans le signalement et 
-faire une fonction qupprime sa normalement c'est la meme chose que supprimer un signalement mais pour un article lol **/

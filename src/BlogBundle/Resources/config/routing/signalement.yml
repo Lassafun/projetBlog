@@ -22,3 +22,18 @@ signalement_delete:
     path:     /{id}/delete
     defaults: { _controller: "BlogBundle:Signalement:delete" }
     methods:  [GET, POST]
+
+signalement_delete_article:
+    path:     /{id}/delete/article
+    defaults: { _controller: "BlogBundle:Signalement:deleteArticle" }
+    methods:  [GET, POST]
+
+signalement_delete_commentaire:
+    path:     /{id}/delete/commentaire
+    defaults: { _controller: "BlogBundle:Signalement:deleteCommentaire" }
+    methods:  [GET, POST]
+
+signalement_delete_user:
+    path:     /{id}/delete/user
+    defaults: { _controller: "BlogBundle:Signalement:deleteUser" }
+    methods:  [GET, POST]    

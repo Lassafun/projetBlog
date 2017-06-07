@@ -10,42 +10,42 @@ class Article
     /**
      * @var integer
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      */
-    private $titre;
+    protected $titre;
 
     /**
      * @var string
      */
-    private $date;
+    protected $date;
 
     /**
      * @var string
      */
-    private $dateModif;
+    protected $dateModif;
 
     /**
      * @var string
      */
-    private $contenu;
+    protected $contenu;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $articleSignalements;
+    protected $articleSignalements;
 
     /**
      * @var \BlogBundle\Entity\User
      */
-    private $usersArticle;
+    protected $usersArticle;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $users;
+    protected $users;
 
     /**
      * Constructor

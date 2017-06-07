@@ -10,22 +10,22 @@ class Signalement
     /**
      * @var integer
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      */
-    private $cause;
+    protected $cause;
 
     /**
      * @var \BlogBundle\Entity\User
      */
-    private $userSignalement;
+    protected $userSignalement;
 
     /**
      * @var \BlogBundle\Entity\Article
      */
-    private $signalementsArticle;
+    protected $signalementsArticle;
 
 
 

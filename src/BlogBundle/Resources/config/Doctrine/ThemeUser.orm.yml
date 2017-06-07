@@ -16,9 +16,12 @@ BlogBundle\Entity\ThemeUser:
 
     manyToOne:
         user:
-            targetEntity: User   
+            targetEntity: User
+            joinColumn:
+                onDelete: cascade
         themeofficiel:
             targetEntity: ThemeOfficiel
+            
             
     
     lifecycleCallbacks: { }

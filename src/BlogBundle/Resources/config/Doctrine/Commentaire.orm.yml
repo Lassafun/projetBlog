@@ -18,14 +18,15 @@ BlogBundle\Entity\Commentaire:
         commentaireSignalements:
             targetEntity: Signalement
             mappedBy: signalementsCommentaire
+            cascade: ["remove"]
             
     manyToOne:
         commentairesArticle:
             targetEntity: Article
-            inversedBy: articleCommentaire            
-            
+            inversedBy: articleCommentaire
+
         commentairesUser:
             targetEntity: User
-            inversedBy: userCommentaires
+            inversedBy: userCommentaires 
     lifecycleCallbacks: { }
     

@@ -27,12 +27,14 @@ BlogBundle\Entity\User:
         userSignalements:
             targetEntity: Signalement
             mappedBy: userSignalement
+            cascade: ["remove"]
             
         articles:
             targetEntity: Article
             mappedBy: usersArticle
+            cascade: ["remove"]
             
         userCommentaires:
             targetEntity: Commentaire
-            mappedBy: commentairesUser
+            mappedBy: commentairesUser     
     lifecycleCallbacks: {  }

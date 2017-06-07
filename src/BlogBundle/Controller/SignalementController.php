@@ -3,6 +3,9 @@
 namespace BlogBundle\Controller;
 
 use BlogBundle\Entity\Signalement;
+use BlogBundle\Entity\Article;
+use BlogBundle\Entity\Commentaire;
+use BlogBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -22,10 +25,11 @@ class SignalementController extends Controller
 
        /* $signalements = $em->getRepository('BlogBundle:Signalement')->findAll();*/
 
+       /* Liste des articles signalés*/
         $signalementsArticle = $em->getRepository('BlogBundle:Signalement')->getListArticles();
-
+       /* Liste des commentaires signalés*/
         $signalementsCommentaire = $em->getRepository('BlogBundle:Signalement')->getListCommentaires();
-
+        /* Liste des users signalés*/
         $userSignalement = $em->getRepository('BlogBundle:Signalement')->getListUser();
 
         return $this->render('signalement/index.html.twig', array(
@@ -125,5 +129,39 @@ class SignalementController extends Controller
             ->setMethod('POST')
             ->getForm()
         ;
+    }
+
+    ////////////////////////////////////
+    ////////////AJOUT//////////////////
+    ///////////////////////////////////
+
+  //FONCTION QUI PERMET LA SUPPRESSION DE LARTICLE DIRECT DES SIGNALEMENT
+    public function deleteArticleAction(Article $article)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($article);
+        $em->flush();
+
+        return $this->redirectToRoute('signalement_index');
+    }
+
+    //FONCTION QUI PERMET LA SUPPRESSION DU COMMENTAIRE DIRECT DES SIGNALEMENT
+     public function deleteCommentaireAction(Commentaire $commentaire)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($commentaire);
+        $em->flush();
+
+        return $this->redirectToRoute('signalement_index');
+    }
+
+    //FONCTION QUI PERMET LA SUPPRESSION DE LUTILISATEUR DIRECT DES SIGNALEMENT
+     public function deleteUserAction(User $user)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($user);
+        $em->flush();
+
+        return $this->redirectToRoute('signalement_index');
     }
 }

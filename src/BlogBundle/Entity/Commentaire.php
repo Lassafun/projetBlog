@@ -10,27 +10,27 @@ class Commentaire
     /**
      * @var integer
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      */
-    private $texte;
+    protected $texte;
 
     /**
      * @var integer
      */
-    private $note;
+    protected $note;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $commentaireSignalements;
+    protected $commentaireSignalements;
 
     /**
      * @var \BlogBundle\Entity\Article
      */
-    private $commentairesArticle;
+    protected $commentairesArticle;
 
     /**
      * Constructor
@@ -158,7 +158,7 @@ class Commentaire
     /**
      * @var \BlogBundle\Entity\User
      */
-    private $commentairesUser;
+    protected $commentairesUser;
 
 
     /**

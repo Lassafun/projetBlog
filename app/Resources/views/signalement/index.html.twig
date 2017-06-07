@@ -1,14 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Signalements list</h1>
 
-    
+    <H1>Liste des articles signalés</H1>
      <table border="1" cellpadding="15">
         <thead>
             <tr>
                 <!------Ajouter ---->
-                <th>User</th>
+                <th>Utilisateur</th>
                 <th>Article</th>
                 <th>Commentaire</th>
                 <th>Cause</th>
@@ -26,9 +25,12 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('signalement_show', { 'id': signalement.id }) }}">show</a>
+                            <a href="{{ path('signalement_show', { 'id': signalement.id }) }}">Voir l'article</a>
                         </li>
                         <!------Ajouter ---->
+                       <li> <a href="{{ path('signalement_delete_article', {'id': signalement.signalementsArticle.id }) }}">
+                            Supprimer l'artcile          </a>
+                        </li>
                         <li>
                             <a href="{{ path('signalement_delete', { 'id': signalement.id }) }}">Supprimer le signalement</a>
                         </li>
@@ -38,12 +40,14 @@
         {% endfor %}
         </tbody>
     </table>
+    <br>
 
+<H1>Liste des commentaires signalés</H1>
     <table border="1" cellpadding="15">
         <thead>
             <tr>
                 <!------Ajouter ---->
-                <th>User</th>
+                <th>Utilisateur</th>
                 <th>Article</th>
                 <th>Commentaire</th>
                 <th>Cause</th>
@@ -61,9 +65,12 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('signalement_show', { 'id': signalement.id }) }}">show</a>
+                            <a href="{{ path('signalement_show', { 'id': signalement.id }) }}">Voir le commentaire</a>
                         </li>
                         <!------Ajouter ---->
+                        <li> <a href="{{ path('signalement_delete_commentaire', {'id': signalement.signalementsCommentaire.id }) }}">
+                            Supprimer le commentaire  </a>
+                        </li>
                         <li>
                             <a href="{{ path('signalement_delete', { 'id': signalement.id }) }}">Supprimer le signalement</a>
                         </li>
@@ -72,13 +79,15 @@
             </tr>
         {% endfor %}
         </tbody>
-    </table>
+    </table><br>
 
+<H1>Liste des utilisateurs signalés</H1>
     <table border="1" cellpadding="15">
         <thead>
             <tr>
                 <!------Ajouter ---->
-                <th>User</th>
+                <th>Utilisateur</th>
+                <th>Utilisateur</th>
                 <th>Article</th>
                 <th>Commentaire</th>
                 <th>Cause</th>
@@ -95,12 +104,13 @@
                 <td>{{ signalement.cause }}</td>
                 <td>
                     <ul>
-                        <li>
-                            <a href="{{ path('signalement_show', { 'id': signalement.id }) }}">show</a>
-                        </li>
                         <!------Ajouter ---->
                         <li>
-                            <a href="{{ path('signalement_delete', { 'id': signalement.id }) }}">Supprimer le signalement</a>
+                            <a href="{{ path('signalement_delete', {id: signalement.id }) }}">Supprimer le signalement</a>
+                        </li>
+                         <!------Ajouter ---->
+                        <li> <a  href="{{ path('signalement_delete_user', {'id': signalement.userSignalement.id }) }}" onclick="return confirm('Voulez-vous vraiment supprimer cet utilisateur ?! ');" style="color: red; ">
+                            Supprimer l'utilisateur ?  </a>
                         </li>
                     </ul>
                 </td>
@@ -108,11 +118,5 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('signalement_new') }}">Create a new signalement</a>
-        </li>
-    </ul>
 
 {% endblock %}
